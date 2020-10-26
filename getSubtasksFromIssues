@@ -1,0 +1,32 @@
+/*This script will take that project key, look for all issues that arent accepted,
+and give you a list of issues that have subtasks.
+Edit the lines that are specified for your environment
+*/
+
+string jql;
+string proj;
+string params;
+
+// Edit this next line with your project key
+proj = "SAMPLE";
+//proj = (argv[0]);
+// Edit this next line with what status you want the issues to be in before you collect the list of subtasks of it. Edit within the brackets please
+params = "(TO DO)";
+//params = (argv[1]);
+
+
+//jql = "project = " + proj + " AND issuetype = story AND status not in (Done,Completed,Accepted)";
+jql = ("project = " + proj + " AND issuetype = story AND status not in " + params);
+
+string [] keys = selectIssues(jql);
+string [] ret;
+
+runnerLog("\n" + "Returning all subtasks of issues in "+ argv[1] + " State from project " + argv[0] + "\n\n");
+
+for (string k in keys) {
+    string st = k;
+    if (isNotNull (subtasks(st))) {
+        st = (subtasks (st));
+        runnerLog("Issuekey: " + k + " - Subtasks: " + st);
+        }
+}
