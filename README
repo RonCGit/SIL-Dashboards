@@ -1,0 +1,7 @@
+This dashboard script is meant to be used as invoked by SIL Runner Gadget
+Download the script to a location on the local Jira server. Make sure SIL is already installed, and create a new dashboard from the cPrime Powerscripts gadget.
+You may need to "load all gadgets", and the cPrime Powerscipts gadget shows up under "OTHER".
+
+The script accepts two parameters:
+Parameter 1 = Your project key
+Parameter 2 = The state(s) that you want the users stories that you want the list of subtasks for.
